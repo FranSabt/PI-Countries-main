@@ -1,0 +1,2 @@
+
+next(error) => [Next te envia al siguiente middleware] => [Lo usamos para que los errores sean enviados al obj message app de la API, de este modo nos indica los detalles del error en consola] 
