@@ -13,6 +13,9 @@ const NavBar = () => {
       <Link to="/about">
         <p>About</p>
       </Link>
+      <Link to="/form">
+        <p>Form</p>
+      </Link>
     </div>
   );
 };

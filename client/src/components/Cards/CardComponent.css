@@ -7,10 +7,12 @@
     box-shadow: rgba(0, 0, 0, 0.295) 0px 0px 10px ;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .cardImage{
-    max-width: 400px;
-    max-height: 200px;
+    max-width: 70%;
+    max-height: 35%;
+    box-shadow: rgba(0, 0, 0, 0.295) 0px 0px 10px ;
 }
 
 .card-logo{
