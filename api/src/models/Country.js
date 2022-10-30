@@ -10,7 +10,7 @@ module.exports = (sequelize) => {
       primaryKey: true,
       defaultValue: Sequelize.UUIDV4 //* Generates the UUIDV4 key
     },
-    id_letters: { // ? desde tld.cca //! Validar!
+    id_letters: { // ? desde tld.cca3 //! Validar!
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     area: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     population: {

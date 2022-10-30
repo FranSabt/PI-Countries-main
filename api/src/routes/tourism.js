@@ -13,7 +13,7 @@ router.get('/', (req, res, next )=> {
   })
 })
 
-//* Postear actividad
+// //* Postear actividad
 router.post('/', (req, res, next )=> {
   const  { name, dificulty, duration, season} = req.body;
 

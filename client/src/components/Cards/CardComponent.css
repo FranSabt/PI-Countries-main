@@ -1,0 +1,21 @@
+.card{
+    width: 500px;
+    border-radius: 10px;
+    background-color: rgb(238, 231, 224);
+    display: inline-flex; 
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.295) 0px 0px 10px ;
+    display: flex;
+    flex-direction: column;
+}
+.cardImage{
+    max-width: 400px;
+    max-height: 200px;
+}
+
+.card-logo{
+    padding: 10px;
+}
+.card-content{
+    color:white
+}

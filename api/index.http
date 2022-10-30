@@ -23,6 +23,22 @@ POST http://localhost:3001/api/country HTTP/1.1
 Content-Type:  application/json
 
 {
+    "id_letters" : "FRe", 
+    "name": "Franciel", 
+    "image": "imagen", 
+    "continent": "Europe", 
+    "subregion": "nueva Europa", 
+    "capital": "pepe", 
+    "area": 4562132, 
+    "population": 45612847
+}
+
+###
+
+POST http://localhost:3001/api/country HTTP/1.1
+Content-Type:  application/json
+
+{
     "id_letters" : "BRZ", 
     "name": "Brazil", 
     "image": "imagen", 
@@ -35,12 +51,12 @@ Content-Type:  application/json
 
 ###
 
-GET http://localhost:3001/api/country/FRANCE HTTP/1.1
+GET http://localhost:3001/api/country/al HTTP/1.1
 
 
 ###
 
-GET http://localhost:3001/api/country/id/58116bcd-32e3-409a-bc60-fdf128b5e557 HTTP/1.1
+GET http://localhost:3001/api/country/id/3281494f-0ba3-45f7-be0b-4e182062bfd7 HTTP/1.1
 
 
 
@@ -83,5 +99,4 @@ POST http://localhost:3001/api/tourism/2/country/6176e120-06f3-49ae-a70d-9ea3e36
 ###
 
 POST http://localhost:3001/api/tourism/1/country/167ece74-0c9b-4fdc-9ef3-b04b7d8dd546 HTTP/1.1
-
 
