@@ -1,9 +1,17 @@
+import  axios from 'axios'
 
 export const getCountries =  () => {
-    return function(dispatch) {
-        return fetch('http://localhost:3001/api/country')
-        .then(res => res.json())
-        .then(data => dispatch({type: 'GET_COUNTRIES', payload: data.slice(0, 10)}))
+    return async function(dispatch) {
+        let countries = await axios.get('http://localhost:3001/api/country')
+        return dispatch ({type: 'GET_COUNTRIES', payload: countries.data})
+    }
+}
+
+
+export const getCountriesByName =  (name) => {
+    return async function(dispatch) {
+        let countriesFiltered = await axios.get(`http://localhost:3001/api/country/${name}`)
+        return dispatch ({type: 'GET_COUNTRIES_BY_NAME', payload: countriesFiltered.data})
     }
 }
 

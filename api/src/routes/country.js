@@ -6,7 +6,7 @@ const { Country, Tourism } = require('../db')
 const router = Router();
 const getCountryApi  = require('../controllers/getCountryApi')
 const countriesDBStore = require('../controllers/countriesDBStore')
-
+const checkCountries = require('../controllers/checkCountries')
 
 //* Obtener datos de la api y duardalor en ls DB
 router.get('/', async (req, res, next )=> {
@@ -15,7 +15,9 @@ router.get('/', async (req, res, next )=> {
   
     let countries = await getCountryApi()
 
-    let countriesDB = await countriesDBStore(countries)
+    let check = await checkCountries()
+
+    let countriesDB = await countriesDBStore(countries, check)
 
     res.send(countriesDB );
   }

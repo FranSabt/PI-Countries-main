@@ -7,6 +7,7 @@ const NavBar = () => {
 
   return (
     <div className={navbarClass}>
+      <div className="linkRoutes">
       <Link to="/">
         <p>Home</p>
       </Link>
@@ -16,6 +17,7 @@ const NavBar = () => {
       <Link to="/form">
         <p>Form</p>
       </Link>
+      </div>
     </div>
   );
 };

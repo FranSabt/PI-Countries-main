@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCountries } from '../../store/actions/actions'
 import CardComponent from './CardComponent'
 
-const CardsConteiner = () => {
+const CardsConteiner = (props) => {
 
   // const [countries, setCountries] =  useState([])
 
@@ -15,16 +15,20 @@ const CardsConteiner = () => {
     if(!countriesFind.length){
       dispatch(getCountries())
     }
-  }) //* Para que cargue 1 vez
+  },[dispatch]) //* Para que cargue 1 vez
+
+console.log(countriesFind);
 
   return (
     <div>
-      {countriesFind.map(e => {
-        return <CardComponent 
+    {countriesFind.length ?  
+
+      countriesFind?.map(e => (
+        <CardComponent 
         area={e.area}
         capital={e.capital}
         continent={e.continent}
-        key={e.id} 
+        key={e.id_letters} 
         id={e.id} 
         id_letters={e.id_letters} 
         flag={e.image}
@@ -32,7 +36,9 @@ const CardsConteiner = () => {
         population={e.population} 
         subregion={e.subregion}
         /> 
-      })}
+      ))
+
+    : <div>Loader... </div>}
     </div>
   )
 }

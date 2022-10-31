@@ -1,25 +1,19 @@
-.card{
-    width: 250px;
-    height: 300px;
+.card-detail{
+    background-color: blueviolet;
+    width: 400px;
+    /* height: 80vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
     border-radius: 10px;
     background-color: rgb(238, 231, 224);
-    display: inline-flex; 
-    margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.295) 0px 0px 10px ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
-.cardImage{
+
+.cardImage-detail{
     width: 70%;
     height: 35%;
     box-shadow: rgba(0, 0, 0, 0.295) 0px 0px 10px ;
     background-color: transparent;
-}
-
-.card-logo{
-    padding: 10px;
-}
-.card-content{
-    color:white
 }
