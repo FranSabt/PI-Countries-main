@@ -5,11 +5,13 @@ import { getCountriesByName } from '../../store/actions/actions';
 
 const SearchBar = () => {
 	const [search, setSearch] = useState('');
-  let dispatch = useDispatch();
+
+	let dispatch = useDispatch();
 
 	const onInputSubmit = (e) => {
 		e.preventDefault();
 		dispatch(getCountriesByName(search))
+		setSearch('')
 	}
 
 	const onInputChange = (e) => {
@@ -20,11 +22,11 @@ const SearchBar = () => {
 	return (
     <div>
 			<form onSubmit={onInputSubmit}>
-			<input type='text' onChange={onInputChange} value={search}/>
-			<input type='submit' value='search'/>
+				<input type='text' placeholder='Search...' onChange={onInputChange} value={search}/>
+				<input type='submit' value='search'/>
 			</form>
 			SearchBar
-		</div>
+	</div>
   )
 }
 

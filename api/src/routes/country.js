@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { Router, response } = require('express');
-const axios = require('axios')
+// const axios = require('axios')
 const { Op } = require('sequelize')
 const { Country, Tourism } = require('../db')
 const router = Router();
@@ -19,7 +19,7 @@ router.get('/', async (req, res, next )=> {
 
     let countriesDB = await countriesDBStore(countries, check)
 
-    res.send(countriesDB );
+    res.send(countriesDB);
   }
   catch (err) {
     next(err)

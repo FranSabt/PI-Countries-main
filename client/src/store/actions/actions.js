@@ -47,3 +47,24 @@ export const addActivity = (newActivity) => {
 
     }
 }
+
+export const sort = (order) => {
+    return {
+        type: "SORT",
+        payload: order
+    }
+}
+
+
+export const filter = (order) => {
+    return {
+        type: "FILTER",
+        payload: order
+    }
+}
+
+export const reset = () => {
+    return {
+        type: "RESET"
+    }
+}

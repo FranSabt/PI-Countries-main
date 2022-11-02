@@ -56,22 +56,22 @@ const FromsActivities = props => {
 				{/*//? ACTIVITY SEASON */}
 				<div className='fieldsetConteiner'>
 					<fieldset className='fieldset'>
-						<legend>Select a maintenance season:</legend>
+						<legend>Select a season:</legend>
 						<div>
 							<input type="radio" id="summer" name="season" value="summer" checked onChange={handleInputChange}/>
-							<label for="summer">Summer</label>
+							<label htmlFor="summer">Summer</label>
 						</div>
 						<div>
 							<input type="radio" id="autumn" name="season" value="autumn" onChange={handleInputChange}/>
-							<label for="autumn">Autumn</label>
+							<label htmlFor="autumn">Autumn</label>
 						</div>
 						<div>
 							<input type="radio" id="winter" name="season" value="winter" onChange={handleInputChange}/>
-							<label for="winter">Winter</label>
+							<label htmlFor="winter">Winter</label>
 						</div>
 						<div>
 							<input type="radio" id="spring" name="season" value="spring" onChange={handleInputChange}/>
-							<label for="spring">Spring</label>
+							<label htmlFor="spring">Spring</label>
 						</div>
 					</fieldset>
 				</div>

@@ -10,6 +10,7 @@ const CardComponent = ({area, capital, continent, id, id_letters, flag, name, po
 				<img className='cardImage' src={flag} alt={name + ' flag'}/>
 				<p>Country: {name}</p>
 				<p>Capital: {capital}</p>
+				<p>Continent: {continent}</p>
 			</div>
 		</div>
   )

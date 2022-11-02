@@ -3,13 +3,15 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCountries } from '../../store/actions/actions'
 import CardComponent from './CardComponent'
+import Loading from '../Loading/Loading'
+import './CardConteiner.css' //?Styles
 
 const CardsConteiner = (props) => {
 
   // const [countries, setCountries] =  useState([])
 
   let dispatch = useDispatch();
-  let countriesFind = useSelector(state => state.contries)
+  let countriesFind = useSelector(state => state.contriesFiltered)
 
   useEffect(() => {
     if(!countriesFind.length){
@@ -20,7 +22,7 @@ const CardsConteiner = (props) => {
 console.log(countriesFind);
 
   return (
-    <div>
+    <div >
     {countriesFind.length ?  
 
       countriesFind?.map(e => (
@@ -38,7 +40,7 @@ console.log(countriesFind);
         /> 
       ))
 
-    : <div>Loader... </div>}
+    : <div><Loading/></div>}
     </div>
   )
 }

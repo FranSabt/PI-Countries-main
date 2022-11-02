@@ -6,12 +6,14 @@ import Details from "./components/Details/Details";
 import FromsActivities from './components/Forms/FromsActivities'
 import "./App.css";
 import SearchBar from "./components/SearchBar/SearchBar";
+import Order from "./components/Order/Order";
 
 function App() {
   return (
     <div className="App">
         <NavBar />
         <SearchBar />
+        <Order />
         <div className="body">
           <Route exact path='/' component={CardsConteiner}/>
           <Route exact path='/about' component={About}/>
