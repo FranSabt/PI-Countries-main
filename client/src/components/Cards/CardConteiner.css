@@ -10,3 +10,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+.basicDetail{
+    font-weight: 400;
+}

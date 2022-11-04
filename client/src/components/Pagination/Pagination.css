@@ -1,10 +1,14 @@
 .pagConteiner {
     display: flexbox;
     justify-content: center;
+
 }
 
 .numConteiner{
     display: inline-block;
+    width:fit-content;
+    border-radius: 25px;
+    background-color: rgba(0,0,0,.4);
 }
 
 .number{
@@ -12,6 +16,13 @@
     float: left;
     padding: 8px 16px;
     text-decoration: none;
+}
+
+.number:hover{
+    height: 12px;
+    transform: scale(1.2);
+    cursor: pointer;
+    background-color: rgba(100, 98, 98, 0.4);
 }
 
 li {

@@ -17,3 +17,14 @@
     box-shadow: rgba(0, 0, 0, 0.295) 0px 0px 10px ;
     background-color: transparent;
 }
+
+.titleCard-detail{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+
+
+a{
+    text-decoration: none;
+}

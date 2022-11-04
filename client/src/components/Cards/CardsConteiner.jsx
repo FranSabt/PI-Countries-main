@@ -14,14 +14,24 @@ const CardsConteiner = (props) => {
   
   //*info for the pagination
   const [currentPage, setCurrentPage] = useState(1);
+
+
+
   const [countriesPerPage, setCountriesPerPage] = useState(10);
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
-  const currentCountries = countriesFind.slice(indexOfFirstCountry, indexOfLastCountry)
+  const currentCountries = countriesFind.slice( currentPage === 1 ? indexOfFirstCountry : indexOfFirstCountry - 1,  currentPage === 1 ? indexOfLastCountry : indexOfLastCountry - 1)
+  //? these logic in "currentCountries" if beacuse wdon't want to jump one country between the page 1 and the next pages
 
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
+
+  useEffect(() => {
+    setCountriesPerPage(
+      currentPage === 1 ? 9 : 10
+    )
+  },)
 
   useEffect(() => {
     if(!countriesFind.length){

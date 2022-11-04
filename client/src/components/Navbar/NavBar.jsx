@@ -9,13 +9,13 @@ const NavBar = () => {
     <div className={navbarClass}>
       <div className="linkRoutes">
       <Link to="/">
-        <p>Home</p>
+        <p className="link"> Home </p>
       </Link>
       <Link to="/about">
-        <p>About</p>
+        <p className="link"> About </p>
       </Link>
       <Link to="/form">
-        <p>Form</p>
+        <p className="link"> Form </p>
       </Link>
       </div>
     </div>

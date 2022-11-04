@@ -10,6 +10,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 .cardImage{
     width: 70%;
     height: 35%;
@@ -22,4 +23,9 @@
 }
 .card-content{
     color:white
+}
+
+.basicDetail{
+    font-style: italic;
+    font-weight: 1000;
 }

@@ -8,9 +8,11 @@ const CardComponent = ({area, capital, continent, id, id_letters, flag, name, po
 			<div className='card'>
 				<Link to={`details/${id}`}> <h3 className='titleCard'>{name}</h3> </Link>
 				<img className='cardImage' src={flag} alt={name + ' flag'}/>
-				<p>Country: {name}</p>
-				<p>Capital: {capital}</p>
-				<p>Continent: {continent}</p>
+				<div>
+					<p>Country: <span className='basicDetail'>{name}</span></p>
+					<p>Capital: <span className='basicDetail'>{capital}</span></p>
+					<p>Continent: <span className='basicDetail'>{continent}</span></p>
+				</div>
 			</div>
 		</div>
   )
