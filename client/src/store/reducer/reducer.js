@@ -13,6 +13,7 @@ export default function reducer(state = initialState, action){
     console.log(filter);
 
     switch (action.type) {
+
         case"GET_COUNTRIES":
             return {
                 ...state,
@@ -58,7 +59,7 @@ export default function reducer(state = initialState, action){
             }
 
 
-            case"GET_COUNTRIES_BY_NAME":
+        case"GET_COUNTRIES_BY_NAME":
             return {
                 ...state,
                 contriesFiltered: action.payload

@@ -1,33 +1,24 @@
 import React from "react";
+import './Pagination.css'
 
-const Pagination = ({ prev, next, onPrev, onNext }) => {
-  const handlePrev = () => {
-    onPrev();
-  };
+const Pagination = ({countriesPerPage, countriesFind, pagination }) => {
 
-  const handleNext = () => {
-    onNext();
-  };
+  console.log('countriesPerPage' + countriesPerPage, + 'countriesFind' + countriesFind,+ 'pag' + pagination);
+  const pageNumber = []
+
+  for ( let i = 1; i <= Math.ceil(countriesFind/countriesPerPage); i++) {
+    pageNumber.push(i)
+  }
+
+
   return (
-    <nav className="my-5">
-      <ul className="pagination justify-content-center">
-        
-        {prev ? (
-          <li className="page-item">
-            <button className="page-link" onClick={handlePrev}>
-              Previus
-            </button>
+    <nav className="pagConteiner">
+      <ul className="numConteiner">
+        {pageNumber && pageNumber.map(n => (
+          <li className="number" key={n}>
+            <a onClick={() => pagination(n)}>{n}</a>
           </li>
-        ) : null}
-
-        {next ? (
-          <li className="page-item">
-            <button className="page-link" onClick={handleNext}>
-              Next
-            </button>
-          </li>
-        ) : null}
-
+        ))}
       </ul>
     </nav>
   );
