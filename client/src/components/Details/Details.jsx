@@ -3,6 +3,7 @@ import { useParams  } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCountryDetails } from '../../store/actions/actions'
+import Activities from './Activities'
 import './Details.css'
 
 const Details = () => {
@@ -15,9 +16,9 @@ let dispatch = useDispatch();
 	if(!countryFind.id !== id){
 		dispatch(getCountryDetails(id))
 	}
-  },[countryFind] ) 
+  },[] ) 
 
-
+  console.log('tourims:', typeof countryFind.tourisms  )
   return (
 		<div className='card-detail'>
 			<div >
@@ -29,6 +30,12 @@ let dispatch = useDispatch();
 			<p>Continent: {countryFind.continent}		||	Subregion: {countryFind.subregion}</p>
 			<p>Ground Area: {countryFind.area} Km²</p>
 			<p>Population: {countryFind.population}</p>
+			<p>Activities: {countryFind.tourisms !== undefined ? 
+			countryFind.tourisms.map(e=> (
+			<Activities activity={e}/>
+			)) 
+			: "No activities yet"}
+			</p>
 		</div>
 	</div>
   )

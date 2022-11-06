@@ -3,6 +3,11 @@ GET http://localhost:3001/api/country HTTP/1.1
 
 ###
 
+GET http://localhost:3001/api/country/home HTTP/1.1
+
+
+###
+
 POST http://localhost:3001/api/country HTTP/1.1
 Content-Type:  application/json
 
@@ -51,12 +56,12 @@ Content-Type:  application/json
 
 ###
 
-GET http://localhost:3001/api/country/france HTTP/1.1
+GET http://localhost:3001/api/country/china HTTP/1.1
 
 
 ###
 
-GET http://localhost:3001/api/country/id/3281494f-0ba3-45f7-be0b-4e182062bfd7 HTTP/1.1
+GET http://localhost:3001/api/country/id/2900f9f0-a964-487e-9a78-1f2a571fcab0 HTTP/1.1
 
 
 
@@ -93,7 +98,7 @@ Content-Type:  application/json
 
 ###
 
-POST http://localhost:3001/api/tourism/2/country/6176e120-06f3-49ae-a70d-9ea3e365292a HTTP/1.1
+POST http://localhost:3001/api/tourism/2/country/44762ed8-acd9-47eb-8240-37de1b906d01 HTTP/1.1
 
 
 ###

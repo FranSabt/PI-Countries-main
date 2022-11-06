@@ -8,7 +8,7 @@ const getCountryApi  = require('../controllers/getCountryApi')
 const countriesDBStore = require('../controllers/countriesDBStore')
 const checkCountries = require('../controllers/checkCountries')
 
-//* Obtener datos de la api y duardalor en ls DB
+//* Get the data from the API and sotred in the DB
 router.get('/', async (req, res, next )=> {
 
   try{
@@ -28,16 +28,17 @@ router.get('/', async (req, res, next )=> {
 });
 
 
-router.get('/home', (req, res, next )=> {
-  return Country.findAll({
-    include: Tourism
-  })
-  .then(Country => {
-    res.send(Country)
-  })
-  .catch(err => {
+router.get('/home', async (req, res, next )=> {
+  try {
+    let allCountries = await Country.findAll({
+      include: Tourism
+    })
+
+    res.send(allCountries)
+  }
+  catch (err) {
     next(err)
-  })
+  }
 });
 
 
@@ -58,21 +59,24 @@ router.get('/:name', async (req, res, next )=> {
         }},
         order: [
           ['name', 'ASC'],
-        ]
+        ],
+        include: Tourism
       })
       res.send(getCountry)
   }
   catch (error){
     next(error)
   }
-  
 });
 
 router.get('/id/:id', async (req, res, next )=> {
   let { id }  = req.params;
   console.log(typeof id);
   try {
-    const getCountrybyID = await Country.findByPk(id)
+    const getCountrybyID = await Country.findOne({ where: { id: id },
+    include: Tourism
+    }
+      )
     res.send(getCountrybyID)
   }
   catch (error){
