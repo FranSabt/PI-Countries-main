@@ -98,7 +98,7 @@ Content-Type:  application/json
 
 ###
 
-POST http://localhost:3001/api/tourism/2/country/44762ed8-acd9-47eb-8240-37de1b906d01 HTTP/1.1
+POST http://localhost:3001/api/tourism/1/country/2900f9f0-a964-487e-9a78-1f2a571fcab0 HTTP/1.1
 
 
 ###

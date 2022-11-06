@@ -1,11 +1,15 @@
 import React from 'react'
 
-const Activities = (activity) => {
+const Activities = ({name, dificulty, season, duration}) => {
+    //console.log(activity);
   return (
-    <div>
-        <p>{activity.name}</p>
-        <p>{activity.dificulty}</p>
-        <p>{activity.season}</p>
+    <div className='card-activities'>
+        <div>
+        <p>Name: {name}</p>
+        <p>Dificulty: {dificulty}</p>
+        <p>Season: {season}</p>
+        <p>Duration: {duration}min</p>
+        </div>
     </div>
   )
 }

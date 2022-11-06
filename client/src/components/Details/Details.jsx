@@ -16,26 +16,26 @@ let dispatch = useDispatch();
 	if(!countryFind.id !== id){
 		dispatch(getCountryDetails(id))
 	}
-  },[] ) 
+  },[dispatch] ) 
 
-  console.log('tourims:', typeof countryFind.tourisms  )
+
   return (
-		<div className='card-detail'>
-			<div >
-			<h3 className='titleCard-detail'>{countryFind.name}</h3>
-			<img className='cardImage-detail' src={countryFind.image} alt={countryFind.name + ' flag'}/>
-			<p>Country: {countryFind.name}</p>
-			<p>Intetnational Code: {countryFind.id_letters}</p>
-			<p>Capital: {countryFind.capital}</p>
-			<p>Continent: {countryFind.continent}		||	Subregion: {countryFind.subregion}</p>
-			<p>Ground Area: {countryFind.area} Km²</p>
-			<p>Population: {countryFind.population}</p>
-			<p>Activities: {countryFind.tourisms !== undefined ? 
-			countryFind.tourisms.map(e=> (
-			<Activities activity={e}/>
-			)) 
-			: "No activities yet"}
-			</p>
+		<div  className='card-detail-conteiner' >
+			<div className='card-detail'>
+				<h3 className='titleCard-detail'>{countryFind.name}</h3>
+				<img className='cardImage-detail' src={countryFind.image} alt={countryFind.name + ' flag'}/>
+				<p>Country: {countryFind.name}</p>
+				<p>Intetnational Code: {countryFind.id_letters}</p>
+				<p>Capital: {countryFind.capital}</p>
+				<p>Continent: {countryFind.continent}		||	Subregion: {countryFind.subregion}</p>
+				<p>Ground Area: {countryFind.area} Km²</p>
+				<p>Population: {countryFind.population}</p>
+				<>Activities: {countryFind.tourisms !== undefined ? 
+				countryFind.tourisms.map(e=> (
+				<Activities name={e.name} dificulty={e.dificulty} season={e.season} duration={e.duration} key={e.id}/>
+				)) 
+				: "No activities yet"}
+			</>
 		</div>
 	</div>
   )

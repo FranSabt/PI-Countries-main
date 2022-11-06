@@ -5,10 +5,13 @@
 }
 
 .numConteiner{
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     width:fit-content;
     border-radius: 25px;
     background-color: rgba(0,0,0,.4);
+    padding: 0, 20px;
 }
 
 .number{
@@ -18,11 +21,17 @@
     text-decoration: none;
 }
 
+.actualNumber{
+    color: rgb(145, 5, 5);
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
 .number:hover{
     height: 12px;
     transform: scale(1.2);
     cursor: pointer;
-    background-color: rgba(100, 98, 98, 0.4);
 }
 
 li {

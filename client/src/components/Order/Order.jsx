@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { sort, filter, reset } from "../../store/actions/actions"
+import { sort, filter} from "../../store/actions/actions"
 import './Order.css'
 
 export default function Order() {
@@ -13,14 +13,8 @@ export default function Order() {
         dispatch(sort("ascent"))
     }
 
-    const onReset = () => {
-        dispatch(reset())
-    }
     return (
         <div className="filter">
-            <div>
-                <button onClick={onReset}>Reset Filters/Search</button>
-            </div>
             <div>
                 <select name='select' onChange={onSelectChange}>
                     <option value="ascent" >Ascent</option>

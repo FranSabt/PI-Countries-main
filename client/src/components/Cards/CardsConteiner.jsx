@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCountries } from '../../store/actions/actions'
+import { getCountries, reset } from '../../store/actions/actions'
 import CardComponent from './CardComponent'
 import Loading from '../Loading/Loading'
 import Pagination from '../Pagination/Pagination'
@@ -39,15 +39,24 @@ const CardsConteiner = (props) => {
     }
   },[dispatch]) //* Para que cargue 1 vez
 
+
+  const onReset = () => {
+    dispatch(getCountries())
+}
 console.log(countriesFind);
 
   return (
     <div className='mainConteiner'>
 
+      <div>
+        <button onClick={onReset}>Reset Filters/Search</button>
+      </div>
+
       <Pagination 
       countriesPerPage={countriesPerPage}
       countriesFind={countriesFind.length}
       pagination={pagination}
+      currentPage={currentPage}
       />
       <div className='cardConteiner'> 
 

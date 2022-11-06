@@ -1,17 +1,22 @@
-
-
+.card-detail-conteiner{
+    margin: 20px;
+}
 .card-detail{
     background-color: blueviolet;
     width: 400px;
     /* height: 80vh; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: auto;
     border-radius: 10px;
     background-color: rgb(238, 231, 224);
     box-shadow: rgba(0, 0, 0, 0.295) 0px 0px 10px ;
+    margin: 200px, 0;
+    padding:100px, 0;
 }
+
+
 
 .cardImage-detail{
     width: 70%;
@@ -25,6 +30,21 @@
     text-decoration: none;
 }
 
+.card-activitie-conteiner{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 20px, 0;
+    margin: 10px , 0;
+}
+
+.card-activitie{
+    display: block;
+    border-style: groove;
+    border-radius: 5px;
+    width: 80%;
+}
 
 a{
     text-decoration: none;
