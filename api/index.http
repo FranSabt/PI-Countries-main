@@ -56,7 +56,7 @@ Content-Type:  application/json
 
 ###
 
-GET http://localhost:3001/api/country/china HTTP/1.1
+GET http://localhost:3001/api/country/qatar HTTP/1.1
 
 
 ###
@@ -67,7 +67,7 @@ GET http://localhost:3001/api/country/id/2900f9f0-a964-487e-9a78-1f2a571fcab0 HT
 
 ###
 
-
+###
 
 GET http://localhost:3001/api/tourism HTTP/1.1
 
@@ -91,6 +91,19 @@ Content-Type:  application/json
 
 { 
     "name" : "boiling", 
+    "dificulty": 2, 
+    "duration": 120, 
+    "season": "winter"
+}
+
+###
+
+
+POST  http://localhost:3001/api/tourism HTTP/1.1
+Content-Type:  application/json
+
+{ 
+    "name" : "lagata", 
     "dificulty": 2, 
     "duration": 120, 
     "season": "winter"

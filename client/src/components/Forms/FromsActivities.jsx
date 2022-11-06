@@ -9,6 +9,7 @@ const FromsActivities = ()=> {
 
 	let dispatch = useDispatch()
 
+
 	const [input, setInput]  = useState(
 		{
 			name: '',
@@ -72,10 +73,29 @@ const FromsActivities = ()=> {
 			[e.target.name]: e.target.value,
 		})
 	}
+
+
+
+	const handleInputSeason = (e) => {
+		setInput({
+			...input, 
+			[e.target.name]: e.target.value,
+		})
+	}
 	
+	
+
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(addActivity(input))
+		dispatch(addActivity(input));
+		setInput({
+			name: '',
+			dificulty: '',
+			season: '',
+			duration: '',
+		})
+
 	}
 
   return (
@@ -104,30 +124,19 @@ const FromsActivities = ()=> {
 				</div>
 
 				{/*//? ACTIVITY SEASON */}
-				<div className='fieldsetConteiner'>
-					<fieldset className='fieldset'>
-						<legend>Select a season:</legend>
-						<div>
-							<input type="radio" id="summer" name="season" value="summer" checked o required/>
-							<label htmlFor="summer">Summer</label>
-						</div>
-						<div>
-							<input type="radio" id="autumn" name="season" value="autumn"  required/>
-							<label htmlFor="autumn">Autumn</label>
-						</div>
-						<div>
-							<input type="radio" id="winter" name="season" value="winter"required/>
-							<label htmlFor="winter">Winter</label>
-						</div>
-						<div>
-							<input type="radio" id="spring" name="season" value="spring"  required/>
-							<label htmlFor="spring">Spring</label>
-						</div>
-					</fieldset>
+				<div className='season'>
+				<label>Season: </label>
+				<select name='season' onChange={handleInputSeason}>
+					<option value="" >Select a season</option>	
+					<option value="spring" >Spring</option>
+					<option value="summer" >Summer</option>
+                    <option value="autumn" >Autumn</option>
+                    <option value="winter" >Winter</option>
+                </select>
 				</div>
 
 							{/*//? SUBMIT BUTTON */}
-			<input type='submit' value={'Add activity'} />
+			<input type='submit' value={'Add activity'} disabled={ (!input.name || !input.dificulty || !input.duration || !input.season) ? true : false}/>
 			</form>
 		</div>
   )
