@@ -22,6 +22,14 @@ export default function reducer(state = initialState, action){
                 allContries: action.payload,
             }
 
+            case"GET_COUNTRIES:ALL":
+            return {
+                ...state,
+                contries: action.payload,
+                contriesFiltered: action.payload,
+                allContries: action.payload,
+            }
+
         case"GET_COUNTRIES_FILTERED":
         return {
             ...state,

@@ -1,10 +1,11 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCountries, reset } from '../../store/actions/actions'
+import { getCountries } from '../../store/actions/actions'
 import CardComponent from './CardComponent'
 import Loading from '../Loading/Loading'
 import Pagination from '../Pagination/Pagination'
+import Order from '../Order/Order'
 import './CardConteiner.css' //?Styles
 
 const CardsConteiner = (props) => {
@@ -31,7 +32,7 @@ const CardsConteiner = (props) => {
     setCountriesPerPage(
       currentPage === 1 ? 9 : 10
     )
-  },)
+  },[dispatch])
 
   useEffect(() => {
     if(!countriesFind.length){
@@ -48,8 +49,9 @@ console.log(countriesFind);
   return (
     <div className='mainConteiner'>
 
-      <div>
-        <button onClick={onReset}>Reset Filters/Search</button>
+      <div className='reset'>
+        <button className='btn-reset' onClick={onReset}>Reset Filters</button>
+        <Order />
       </div>
 
       <Pagination 

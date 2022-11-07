@@ -4,18 +4,16 @@ import NavBar from "./components/Navbar/NavBar";
 import About from "./components/About/About"
 import Details from "./components/Details/Details";
 import FromsActivities from './components/Forms/FromsActivities'
+import LandingPage from "./components/Lading/LandingPage";
 import "./App.css";
-import SearchBar from "./components/SearchBar/SearchBar";
-import Order from "./components/Order/Order";
 
 function App() {
   return (
     <div className="App">
         <NavBar />
-        <SearchBar />
-        <Order />
         <div className="body">
-          <Route exact path='/' component={CardsConteiner}/>
+          <Route exact path='/' component={LandingPage}/>
+          <Route exact path='/home' component={CardsConteiner}/>
           <Route exact path='/about' component={About}/>
           <Route exact path='/details/:id' component={Details}/>
           <Route exact path='/form' component={FromsActivities}/>

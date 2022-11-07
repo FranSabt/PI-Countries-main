@@ -30,11 +30,12 @@ let dispatch = useDispatch();
 				<p>Continent: {countryFind.continent}		||	Subregion: {countryFind.subregion}</p>
 				<p>Ground Area: {countryFind.area} Km²</p>
 				<p>Population: {countryFind.population}</p>
-				<>Activities: {countryFind.tourisms !== undefined ? 
-				countryFind.tourisms.map(e=> (
-				<Activities name={e.name} dificulty={e.dificulty} season={e.season} duration={e.duration} key={e.id}/>
-				)) 
-				: "No activities yet"}
+				<>Activities: {
+					countryFind.tourisms !== undefined ? 
+					countryFind.tourisms.map(e=> (
+					<Activities name={e.name} dificulty={e.dificulty} season={e.season} duration={e.duration} key={e.id}/>
+					)) 
+					: <p>"No activities yet"</p>}
 			</>
 		</div>
 	</div>

@@ -1,5 +1,12 @@
 import  axios from 'axios'
 
+export const getCountriesAll =  () => {
+    return async function(dispatch) {
+        let countries = await axios.get('http://localhost:3001/api/country/')
+        return dispatch ({type: 'GET_COUNTRIES_ALL', payload: countries.data})
+    }
+}
+
 export const getCountries =  () => {
     return async function(dispatch) {
         let countries = await axios.get('http://localhost:3001/api/country/home')

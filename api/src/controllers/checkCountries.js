@@ -1,5 +1,5 @@
-const { Router, response } = require("express");
-const axios = require("axios");
+// const { Router, response } = require("express");
+// const axios = require("axios");
 const { Country, Tourism } = require('../db')
 require("dotenv").config();
 

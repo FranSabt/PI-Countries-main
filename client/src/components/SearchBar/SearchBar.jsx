@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { getCountriesByName } from '../../store/actions/actions';
+import './SearchBar.css'
 
 const SearchBar = () => {
 	const [search, setSearch] = useState('');
@@ -20,12 +21,11 @@ const SearchBar = () => {
 	}
 	
 	return (
-    <div>
+    <div className='searchbar'>
 			<form onSubmit={onInputSubmit}>
-				<input type='text' placeholder='Search...' onChange={onInputChange} value={search}/>
-				<input type='submit' value='search'/>
+				<input className='searchbar-bar' type='text' placeholder='Search...' onChange={onInputChange} value={search}/>
+				<input className='searchbar-btn' type='submit' value='search'/>
 			</form>
-			SearchBar
 	</div>
   )
 }

@@ -14,3 +14,11 @@
 .basicDetail{
     font-weight: 400;
 }
+
+.reset{
+    padding: 12px
+}
+
+.btn-reset{
+    border-radius: 20px;
+}

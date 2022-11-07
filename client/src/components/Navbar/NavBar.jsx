@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchBar from "../SearchBar/SearchBar";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -8,7 +9,7 @@ const NavBar = () => {
   return (
     <div className={navbarClass}>
       <div className="linkRoutes">
-      <Link to="/">
+      <Link to="/home">
         <p className="link"> Home </p>
       </Link>
       <Link to="/about">
@@ -18,6 +19,7 @@ const NavBar = () => {
         <p className="link"> Form </p>
       </Link>
       </div>
+      <SearchBar />
     </div>
   );
 };
