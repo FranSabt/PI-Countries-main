@@ -22,7 +22,7 @@ export default function reducer(state = initialState, action){
                 allContries: action.payload,
             }
 
-            case"GET_COUNTRIES:ALL":
+        case"GET_COUNTRIES_ALL":
             return {
                 ...state,
                 contries: action.payload,
@@ -35,6 +35,17 @@ export default function reducer(state = initialState, action){
             ...state,
             //contries: action.payload,
             contriesFiltered: action.payload,
+        }
+
+        case"GET_ALL_ACTIVITIES":
+        return {
+            ...state,
+            activities: action.payload,
+        }
+
+        case"POST_ACTIVITIES_COUNTRIES":
+        return{
+            ...state
         }
 
         

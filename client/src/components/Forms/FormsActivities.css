@@ -1,6 +1,6 @@
 .formConteiner{
     width: 40%;
-    height: 70vh;
+    height: 80vh;
     background-color: rgb(238, 231, 224);
     box-shadow: rgba(0, 0, 0, 0.295) 0px 0px 10px ;
     border-radius: 25px;
@@ -8,15 +8,25 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
+    margin: 18px;
     
 }
 
 .form{
+    height: 90%;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
+}
+
+.activity{
+    margin: 16px 0;
+}
+
+.danger{
+    color: rgb(255, 0, 0);
 }
 /* 
 .fieldsetConteiner{

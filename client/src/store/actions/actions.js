@@ -55,6 +55,23 @@ export const addActivity = (newActivity) => {
     }
 }
 
+export const addActivityToCountries = (idActivity, countries) => {
+    return async function(dispatch){
+        let countriesActivities = await axios.post(`http://localhost:3001/api/tourism/${idActivity}/country/${countries}`)
+        return dispatch ({type: 'POST_ACTIVITIES_COUNTRIES', payload: countriesActivities})
+    }
+
+
+}
+
+export const getAllActivities = () => {
+    return function(dispatch) {
+        return fetch(`http://localhost:3001/api/tourism`)
+        .then(res => res.json())
+        .then(data => dispatch({type: 'GET_ALL_ACTIVITIES', payload: data}))
+    }
+}
+
 export const sort = (order) => {
     return {
         type: "SORT",

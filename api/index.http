@@ -56,12 +56,12 @@ Content-Type:  application/json
 
 ###
 
-GET http://localhost:3001/api/country/qatar HTTP/1.1
+GET http://localhost:3001/api/country/af HTTP/1.1
 
 
 ###
 
-GET http://localhost:3001/api/country/id/d82a2b07-0355-442e-82c1-5e28a77e2672 HTTP/1.1
+GET http://localhost:3001/api/country/id/5ab8a454-15f3-4ec2-9a61-87bcbd50f338 HTTP/1.1
 
 
 
@@ -111,10 +111,10 @@ Content-Type:  application/json
 
 ###
 
-POST http://localhost:3001/api/tourism/1/country/2900f9f0-a964-487e-9a78-1f2a571fcab0 HTTP/1.1
+POST http://localhost:3001/api/tourism/1/country/5ab8a454-15f3-4ec2-9a61-87bcbd50f338 HTTP/1.1
 
 
 ###
 
-POST http://localhost:3001/api/tourism/1/country/167ece74-0c9b-4fdc-9ef3-b04b7d8dd546 HTTP/1.1
+POST http://localhost:3001/api/tourism/2/country/03c4972f-1e0d-4b8b-a517-fc7299d0dc0d HTTP/1.1
 

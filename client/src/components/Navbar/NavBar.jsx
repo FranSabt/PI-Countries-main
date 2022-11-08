@@ -18,6 +18,9 @@ const NavBar = () => {
       <Link to="/form">
         <p className="link"> Form </p>
       </Link>
+      <Link to="/add">
+        <p className="link"> Add Activity </p>
+      </Link>
       </div>
       <SearchBar />
     </div>

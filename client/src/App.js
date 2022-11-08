@@ -5,6 +5,7 @@ import About from "./components/About/About"
 import Details from "./components/Details/Details";
 import FromsActivities from './components/Forms/FromsActivities'
 import LandingPage from "./components/Lading/LandingPage";
+import AddActivities from "./components/Forms/AddActivities"
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route exact path='/about' component={About}/>
           <Route exact path='/details/:id' component={Details}/>
           <Route exact path='/form' component={FromsActivities}/>
+          <Route exact path='/add' component={AddActivities}/>
         </div>
     </div>
   );

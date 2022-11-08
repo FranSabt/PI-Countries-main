@@ -24,7 +24,7 @@ const FromsActivities = ()=> {
 	const handleInputName =  (e) => {
 
 		if(!/\S+[A-Za-z]{2,16}\S+/.test(e.target.value)){
-			setErrorName('Name has to be a least 4 letters long')
+			setErrorName('Name has to be a least 4 characters long')
 		}
 		else {
 			setErrorName('')
@@ -60,7 +60,7 @@ const FromsActivities = ()=> {
 	const handleInputDuration =  (e) => {
 		
 		if (Number(e.target.value) > 120 || Number(e.target.value) < 15){
-			setErrorDuration('Duration must be a leat 15 min a max 120')
+			setErrorDuration('Duration must be a leat 15min a max 120min')
 		}
 		else if (!Number.isInteger(Number(e.target.value))){
 			setErrorDuration('Duration must be in Integers')
@@ -101,30 +101,30 @@ const FromsActivities = ()=> {
   return (
     <div className='formConteiner'>
 			<form className='form' action='' onSubmit={handleSubmit}>
-
+				<h2>Let's create a new activity!!!</h2>
 				{/*//? ACTIVITY NAME */}
-				<div className='activityName'>
+				<div className='activityName activity'>
 					<label>Activy name: </label>
 					<input type="text" id='activityName' placeholder="Activity Name" name='name' value={input.name} onChange={handleInputName}/>
-					{!errorName ? <div><br/></div> : <div>{errorName}</div>}
+					{!errorName ? <div><br/></div> : <div className='danger'>{errorName}</div>}
 				</div>
 
 				{/*//? ACTIVITY DURATION */}
-				<div className='activityDuration'> 
+				<div className='activityDuration activity'> 
 					<label>Duration: </label>
 					<input type="text" id='activityName' placeholder="Duration in minutes" name='duration' value={input.duration} onChange={handleInputDuration} /> <span>{input.duration}</span>
-					{!errorDuration ? <div><br/></div> : <div>{errorDuration}</div>}
+					{!errorDuration ? <div><br/></div> : <div className='danger'>{errorDuration}</div>}
 				</div>
 
 				{/*//? ACTIVITY DUFICULTY */}
-				<div className='dificulty'>
+				<div className='dificulty activity'>
 					<label>Dificulty: </label>
 					<input type="text" id="dificulty" placeholder="measure from 1 to 5" name="dificulty" min="1" max="5" value={input.dificulty} onChange={handleInputDificulty}/>
-					{!errorDificulty ? <div><br/></div> : <div>{errorDificulty}</div>}
+					{!errorDificulty ? <div><br/></div> : <div className='danger'>{errorDificulty}</div>}
 				</div>
 
 				{/*//? ACTIVITY SEASON */}
-				<div className='season'>
+				<div className='season activity'>
 				<label>Season: </label>
 				<select name='season' onChange={handleInputSeason}>
 					<option value="" >Select a season</option>	
