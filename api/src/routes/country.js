@@ -37,7 +37,7 @@ router.get('/home', async (req, res, next )=> {
     res.send(allCountries)
   }
   catch (err) {
-    next(err)
+    throw new Error(`Some problem recovering the data ${error}`)
   }
 });
 
@@ -65,7 +65,7 @@ router.get('/:name', async (req, res, next )=> {
       res.send(getCountry)
   }
   catch (error){
-    next(error)
+    throw new Error(`Name not find ${error}`)
   }
 });
 
@@ -81,7 +81,7 @@ router.get('/id/:id', async (req, res, next )=> {
     res.send(getCountrybyID)
   }
   catch (error){
-    next(error)
+    throw new Error(`Country not find ${error}`)
   }
   
   

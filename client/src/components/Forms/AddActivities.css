@@ -7,3 +7,12 @@
     padding: 12px 18px;
     border-radius: 5px;
 }
+
+.landing-bg{
+    text-align: center;
+    width: 60%;
+    background-color: #eee;
+    padding: 12px;
+    margin: 12px;
+    border-radius: 25px;
+}

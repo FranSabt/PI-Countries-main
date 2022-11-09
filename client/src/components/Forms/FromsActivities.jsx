@@ -111,21 +111,21 @@ const FromsActivities = ()=> {
 				<div className='activityName activity'>
 					<label>Activy name: </label>
 					<input type="text" id='activityName' placeholder="Activity Name" name='name' value={input.name} onChange={handleInputName}/>
-					{!errorName ? <div><br/></div> : <div className='danger'>{errorName}</div>}
+					{!errorName ? <div> A least 4 character long<br/></div> : <div className='danger'>{errorName}</div>}
 				</div>
 
 				{/*//? ACTIVITY DURATION */}
 				<div className='activityDuration activity'> 
 					<label>Duration: </label>
-					<input type="text" id='activityName' placeholder="Duration in minutes" name='duration' value={input.duration} onChange={handleInputDuration} /> <span>{input.duration}</span>
-					{!errorDuration ? <div><br/></div> : <div className='danger'>{errorDuration}</div>}
+					<input type="text" id='activityName' placeholder="Duration in minutes" name='duration' value={input.duration} onChange={handleInputDuration} /> <span>mins.</span>
+					{!errorDuration ? <div>A least 15 min and max 120<br/></div> : <div className='danger'>{errorDuration}</div>}
 				</div>
 
 				{/*//? ACTIVITY DUFICULTY */}
 				<div className='dificulty activity'>
 					<label>Dificulty: </label>
 					<input type="text" id="dificulty" placeholder="measure from 1 to 5" name="dificulty" min="1" max="5" value={input.dificulty} onChange={handleInputDificulty}/>
-					{!errorDificulty ? <div><br/></div> : <div className='danger'>{errorDificulty}</div>}
+					{!errorDificulty ? <div>Measure from 1 to 5, being 1 the easiest and 5 the hardest<br/></div> : <div className='danger'>{errorDificulty}</div>}
 				</div>
 
 				{/*//? ACTIVITY SEASON */}
@@ -141,7 +141,7 @@ const FromsActivities = ()=> {
 				</div>
 
 							{/*//? SUBMIT BUTTON */}
-			<input type='submit' value={'Add activity'} disabled={ (!input.name || !input.dificulty || !input.duration || !input.season) ? true : false}/>
+			<input type='submit' value={'Add activity'} disabled={ (!input.name || !input.dificulty || !input.duration || !input.season) || (errorName || errorDuration || errorDificulty ) ? true : false}/>
 		</form>
 	</div>
 	)

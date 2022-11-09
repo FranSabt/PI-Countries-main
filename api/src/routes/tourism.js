@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Tourism } = require('../db')
+const { Tourism, Country } = require('../db')
 const router = Router();
 
 //* Obtener todo
@@ -9,8 +9,8 @@ router.get('/', (req, res, next )=> {
   .then(getTourism => {
     res.send(getTourism)
   })
-  .catch(err => {
-    throw new Error("Cannot acces the data base")
+  .catch(error => {
+    throw new Error(`Cannot acces the data base ${error}`)
   })
 
 })
@@ -29,8 +29,8 @@ router.post('/', (req, res, next )=> {
   .then(newTourism => {
     res.send(newTourism)
   })
-  .catch(err => {
-    throw new Error("Some problem with the data")
+  .catch(error => {
+    throw new Error(`Some problem with the data ${error}`)
   })
 
 })
@@ -41,10 +41,16 @@ router.post('/:tourismID/country/:countryID', async (req, res, next )=> {
 
   try {
     if(countryID.length === 36){
-      console.log('id: ' +  countryID);
+      let country = await Country.findByPk(countryID)
+      if(country.activity !== undefined  && country.activity.find(e => e.id === tourismID)){
+        res.send('Country has already that activity');
+      }
+      else {
+        console.log('id: ' +  countryID);
       const activity = await Tourism.findByPk(tourismID)
       await activity.addCountry(countryID);
       res.send(200);
+      }
     }
     else{
       res.send('Bad id');

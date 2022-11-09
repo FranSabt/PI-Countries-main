@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllActivities, addActivityToCountries } from '../../store/actions/actions'
+import { getAllActivities, addActivityToCountries, getCountries } from '../../store/actions/actions'
 
 
 function DinamicInputs() {  
@@ -25,10 +25,11 @@ function DinamicInputs() {
 
   },[dispatch])
 
-	// useEffect(() => {
-  //   dispatch(getCountries())
+
+	useEffect(() => {
+    dispatch(getCountries())
     
-  // },[dispatch])
+  },[dispatch])
 
 
 	//!Punto de retorno
@@ -42,11 +43,11 @@ function DinamicInputs() {
 	const [countriesActivities, setCountriesActivities] = useState([])
 
   const agregaActividad = () => {
-		setCountriesActivities([...countriesActivities, countriesActivities]);
+
+	setCountriesActivities([...countriesActivities, countriesActivities]);
 };
 
 	const handleCountryChange = (e) => {
-		console.log(e.target.value);
 		if(e.target.value.length > 8) {
 			setCountriesActivities([...countriesActivities, e.target.value])
 		}
@@ -55,7 +56,7 @@ function DinamicInputs() {
   const handleSubmit = e => {
     e.preventDefault()
 		for (e in countriesActivities) {
-		console.log('e =>', countriesActivities[e])
+		//console.log('e =>', countriesActivities[e])
 			if(e > 0 && countriesActivities[e].length === 36) dispatch(addActivityToCountries(actvityName, countriesActivities[e]))
 			setActvityName('')
 			setCountriesActivities([])
@@ -73,13 +74,13 @@ function DinamicInputs() {
 			</select>
       <input
         type="button"
-        value="Agrega un Actividad"
+        value="Add an activity"
         onClick={agregaActividad}
       />
       {
       countriesActivities.map((el, i) => (
-        <div key={`country-${i}`}>
-          <label htmlFor={`country-${i}`}>{`Country #${i + 1}`}</label>
+        <div className='landing-bg' key={`country-${i}`}>
+          <label htmlFor={`country-${i}`}>{`Country Nº${i + 1}`}</label>
 					<select name='pais' onClick={handleCountryChange}>
 						<option value="" >Select activity</option>
 				{countries.map(e => {

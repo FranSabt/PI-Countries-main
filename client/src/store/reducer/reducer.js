@@ -25,8 +25,8 @@ export default function reducer(state = initialState, action){
         case"GET_COUNTRIES":
             return {
                 ...state,
-                contriesFiltered: [...action.payload],
-                allContries:[ ...action.payload],
+                contriesFiltered: action.payload,
+                allContries:action.payload,
             }
 
         case"GET_COUNTRIES_FILTERED":
@@ -57,7 +57,7 @@ export default function reducer(state = initialState, action){
         case "RESET":
             return{
                 ...state,
-                contriesFiltered: state.contriesFiltered
+                contriesFiltered: state.contries
             }
 
 

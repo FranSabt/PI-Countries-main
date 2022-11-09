@@ -1,6 +1,7 @@
 .mainConteiner{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 
@@ -23,10 +24,22 @@
     border-radius: 20px;
 }
 
+
 .pagination-conteiner{
     background-color: rgba(0,0,0,.4);
     display: flex;
+    flex-direction: column;
+    align-content: center;
     justify-content: center;
+    align-items: center;
+}
+
+.prev-next-btn{
+    display: flex;
+    justify-content: center;
+    margin: 6px;
+    padding: 0 6px;
+    border-radius: 6px;
 }
 
 .pagination{
