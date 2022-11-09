@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllActivities, getCountries, addActivityToCountries } from '../../store/actions/actions'
+import { getAllActivities, addActivityToCountries } from '../../store/actions/actions'
 
 
 function DinamicInputs() {  
 
 	let dispatch = useDispatch();
 	let activities = useSelector(state => state.activities)
-	let countries = useSelector(state => state.contries)
+	let countries = useSelector(state => state.allContries)
 
 	countries = countries.sort((a, b) => {
 		if (a.name < b.name) {
@@ -25,20 +25,17 @@ function DinamicInputs() {
 
   },[dispatch])
 
-	useEffect(() => {
-    dispatch(getCountries())
+	// useEffect(() => {
+  //   dispatch(getCountries())
     
-  },[dispatch])
+  // },[dispatch])
 
-	console.log(activities);
-	console.log(countries);
 
 	//!Punto de retorno
 
 	const [actvityName, setActvityName ] = useState('');
 
 	const handleActivityChange = (e) => {
-		console.log(e.target.value);
 		setActvityName( e.target.value)
 	}
 
@@ -50,22 +47,25 @@ function DinamicInputs() {
 
 	const handleCountryChange = (e) => {
 		console.log(e.target.value);
-		setCountriesActivities([...countriesActivities, e.target.value])
+		if(e.target.value.length > 8) {
+			setCountriesActivities([...countriesActivities, e.target.value])
+		}
 	}
 
   const handleSubmit = e => {
     e.preventDefault()
 		for (e in countriesActivities) {
-			//console.log('activity', actvityName, '  country',countriesActivities[e]);
-			if(e > 0) dispatch(addActivityToCountries(actvityName, countriesActivities[e]))
-
+		console.log('e =>', countriesActivities[e])
+			if(e > 0 && countriesActivities[e].length === 36) dispatch(addActivityToCountries(actvityName, countriesActivities[e]))
+			setActvityName('')
+			setCountriesActivities([])
 		}
   }
 
   return (        
-    <form onSubmit={handleSubmit}>            
-      <label htmlFor="nombre">Actividad:</label>
-			<select name='nombre' onChange={handleActivityChange}>
+    <form onSubmit={handleSubmit} className="formConteiner">            
+      <label className='label' htmlFor="nombre">Add activities to your countries:</label>
+			<select className='select-activitie' name='nombre' onChange={handleActivityChange}>
 				<option value="" >Select activity</option>
 				{activities.map(e => {
 					return <option name='actividad' value={e.id} key={e.id} >{e.name}</option>
@@ -78,9 +78,9 @@ function DinamicInputs() {
       />
       {
       countriesActivities.map((el, i) => (
-        <div key={`persona-${i}`}>
-          <label htmlFor={`nombre-${i}`}>{`Familiar #${i + 1}`}</label>
-					<select name='pais' onChange={handleCountryChange}>
+        <div key={`country-${i}`}>
+          <label htmlFor={`country-${i}`}>{`Country #${i + 1}`}</label>
+					<select name='pais' onClick={handleCountryChange}>
 						<option value="" >Select activity</option>
 				{countries.map(e => {
 					return <option  value={e.id} key={e.id} >{e.name}</option>

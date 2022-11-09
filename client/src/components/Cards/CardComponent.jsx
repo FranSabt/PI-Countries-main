@@ -12,6 +12,7 @@ const CardComponent = ({area, capital, continent, id, id_letters, flag, name, po
 					<p>Country: <span className='basicDetail'>{name}</span></p>
 					<p>Capital: <span className='basicDetail'>{capital}</span></p>
 					<p>Continent: <span className='basicDetail'>{continent}</span></p>
+					<p>Population: <span className='basicDetail'>{population}</span></p>
 				</div>
 			</div>
 		</div>

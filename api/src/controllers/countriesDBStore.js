@@ -32,7 +32,7 @@ const countriesDBStore = (countries, check) => {
     return cDB;
   }
   catch (err) {
-    next(err)
+    throw new Error("Problem reading the data base")
   }
 };
 

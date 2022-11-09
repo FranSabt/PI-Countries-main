@@ -1,11 +1,14 @@
 import  axios from 'axios'
 
+
+//! COUNTRIES
 export const getCountriesAll =  () => {
     return async function(dispatch) {
         let countries = await axios.get('http://localhost:3001/api/country/')
         return dispatch ({type: 'GET_COUNTRIES_ALL', payload: countries.data})
     }
 }
+
 
 export const getCountries =  () => {
     return async function(dispatch) {
@@ -64,6 +67,7 @@ export const addActivityToCountries = (idActivity, countries) => {
 
 }
 
+//! ACTIVITIES
 export const getAllActivities = () => {
     return function(dispatch) {
         return fetch(`http://localhost:3001/api/tourism`)
@@ -72,6 +76,8 @@ export const getAllActivities = () => {
     }
 }
 
+
+//! FILTERS
 export const sort = (order) => {
     return {
         type: "SORT",

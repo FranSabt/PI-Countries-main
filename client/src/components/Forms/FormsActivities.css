@@ -28,6 +28,10 @@
 .danger{
     color: rgb(255, 0, 0);
 }
+
+.select-activitie, .label{
+    margin: 12px 0;
+}
 /* 
 .fieldsetConteiner{
     display: flex;

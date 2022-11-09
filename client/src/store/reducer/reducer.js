@@ -14,7 +14,7 @@ export default function reducer(state = initialState, action){
 
     switch (action.type) {
 
-        case"GET_COUNTRIES":
+        case"GET_COUNTRIES_ALL":
             return {
                 ...state,
                 contries: action.payload,
@@ -22,12 +22,11 @@ export default function reducer(state = initialState, action){
                 allContries: action.payload,
             }
 
-        case"GET_COUNTRIES_ALL":
+        case"GET_COUNTRIES":
             return {
                 ...state,
-                contries: action.payload,
-                contriesFiltered: action.payload,
-                allContries: action.payload,
+                contriesFiltered: [...action.payload],
+                allContries:[ ...action.payload],
             }
 
         case"GET_COUNTRIES_FILTERED":
@@ -65,11 +64,21 @@ export default function reducer(state = initialState, action){
         case "SORT":
             let orderCountries = [...state.contries]
             orderCountries = orderCountries.sort((a, b) => {
-                if(a[filter] < b[filter]){
-                    return action.payload === 'ascent' ? -1 : 1
+                if (filter !== 'population') {
+                    if(a[filter] < b[filter]){
+                        return action.payload === 'ascent' ? -1 : 1
+                    }
+                    else{
+                        return action.payload === 'ascent' ? 1 : -1
+                    }
                 }
-                else{
-                    return action.payload === 'ascent' ? 1 : -1
+                else {
+                    if(a[filter] < b[filter]){
+                        return action.payload === 'ascent' ? 1 : -1
+                    }
+                    else{
+                        return action.payload === 'ascent' ? -1 : 1
+                    }
                 }
             }) 
             return {

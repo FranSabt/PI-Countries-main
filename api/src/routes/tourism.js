@@ -4,17 +4,20 @@ const router = Router();
 
 //* Obtener todo
 router.get('/', (req, res, next )=> {
+
   return Tourism.findAll()
   .then(getTourism => {
     res.send(getTourism)
   })
   .catch(err => {
-    next(err)
+    throw new Error("Cannot acces the data base")
   })
+
 })
 
 // //* Postear actividad
 router.post('/', (req, res, next )=> {
+
   const  { name, dificulty, duration, season} = req.body;
 
   return Tourism.create({ 
@@ -27,21 +30,31 @@ router.post('/', (req, res, next )=> {
     res.send(newTourism)
   })
   .catch(err => {
-    next(err)
+    throw new Error("Some problem with the data")
   })
+
 })
 
 router.post('/:tourismID/country/:countryID', async (req, res, next )=> {
+
   const { tourismID, countryID } = req.params;
+
   try {
-    const activity = await Tourism.findByPk(tourismID)
-    console.log(activity.name);
-  await activity.addCountry(countryID);
-  res.send(200);
+    if(countryID.length === 36){
+      console.log('id: ' +  countryID);
+      const activity = await Tourism.findByPk(tourismID)
+      await activity.addCountry(countryID);
+      res.send(200);
+    }
+    else{
+      res.send('Bad id');
+    }
+    
   }
   catch (error){
-    next(error)
+    throw new Error("Relating info was not possible: " + error)
   }
+
 })
 
 module.exports = router;

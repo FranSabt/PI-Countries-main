@@ -22,3 +22,14 @@
 .btn-reset{
     border-radius: 20px;
 }
+
+.pagination-conteiner{
+    background-color: rgba(0,0,0,.4);
+    display: flex;
+    justify-content: center;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+}

@@ -18,7 +18,7 @@ let dispatch = useDispatch();
 	}
   },[dispatch] ) 
 
-
+  
   return (
 		<div  className='card-detail-conteiner' >
 			<div className='card-detail'>

@@ -56,7 +56,7 @@ Content-Type:  application/json
 
 ###
 
-GET http://localhost:3001/api/country/af HTTP/1.1
+GET http://localhost:3001/api/country/456 HTTP/1.1
 
 
 ###
@@ -111,7 +111,7 @@ Content-Type:  application/json
 
 ###
 
-POST http://localhost:3001/api/tourism/1/country/5ab8a454-15f3-4ec2-9a61-87bcbd50f338 HTTP/1.1
+POST http://localhost:3001/api/tourism/1/country/830e969a-fd64-493f-a49d-91d692135e30 HTTP/1.1
 
 
 ###

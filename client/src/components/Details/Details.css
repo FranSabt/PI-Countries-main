@@ -39,11 +39,12 @@
     margin: 10px , 0;
 }
 
-.card-activitie{
+.card-activities{
     display: block;
     border-style: groove;
     border-radius: 5px;
     width: 80%;
+    margin: 6px;
 }
 
 a{

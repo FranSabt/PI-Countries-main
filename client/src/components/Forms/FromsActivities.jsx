@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addActivity } from '../../store/actions/actions';
 import './FormsActivities.css';
 
+
 const FromsActivities = ()=> {
 
 	let dispatch = useDispatch()
@@ -35,6 +36,7 @@ const FromsActivities = ()=> {
 		})
 	}
 
+
 	const [errorDificulty, setErrorDificulty] = useState('');
 
 	const handleInputDificulty =  (e) => {
@@ -44,6 +46,9 @@ const FromsActivities = ()=> {
 		}
 		if (Number(e.target.value) > 5 || Number(e.target.value) < 1){
 			setErrorDificulty('Dficulty must be a number between 1 and 5')
+		}
+		else if (!Number.isInteger(Number(e.target.value))){
+			setErrorDificulty('Dificulty must be an Integers')
 		}
 		else {
 			setErrorDificulty('')
@@ -95,10 +100,10 @@ const FromsActivities = ()=> {
 			season: '',
 			duration: '',
 		})
-
 	}
 
-  return (
+
+	return (
     <div className='formConteiner'>
 			<form className='form' action='' onSubmit={handleSubmit}>
 				<h2>Let's create a new activity!!!</h2>
@@ -137,9 +142,9 @@ const FromsActivities = ()=> {
 
 							{/*//? SUBMIT BUTTON */}
 			<input type='submit' value={'Add activity'} disabled={ (!input.name || !input.dificulty || !input.duration || !input.season) ? true : false}/>
-			</form>
-		</div>
-  )
+		</form>
+	</div>
+	)
 }
 
 //FromsActivities.propTypes = {}

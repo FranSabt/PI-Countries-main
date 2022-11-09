@@ -5,7 +5,7 @@ const Activities = ({name, dificulty, season, duration}) => {
   return (
     <div className='card-activities'>
         {
-          name ? <div>
+          name.length ? <div>
           <p>Name: {name}</p>
           <p>Dificulty: {dificulty}</p>
           <p>Season: {season}</p>

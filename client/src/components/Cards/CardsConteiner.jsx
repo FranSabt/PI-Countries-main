@@ -8,20 +8,17 @@ import Pagination from '../Pagination/Pagination'
 import Order from '../Order/Order'
 import './CardConteiner.css' //?Styles
 
-const CardsConteiner = (props) => {
+const CardsConteiner = () => {
 
   let dispatch = useDispatch();
   let countriesFind = useSelector(state => state.contriesFiltered)
   
   //*info for the pagination
   const [currentPage, setCurrentPage] = useState(1);
-
-
-
   const [countriesPerPage, setCountriesPerPage] = useState(10);
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
-  const currentCountries = countriesFind.slice( currentPage === 1 ? indexOfFirstCountry : indexOfFirstCountry - 1,  currentPage === 1 ? indexOfLastCountry : indexOfLastCountry - 1)
+  const currentCountries = countriesFind.slice( (currentPage === 1 ? indexOfFirstCountry : indexOfFirstCountry - 1),  (currentPage === 1 ? indexOfLastCountry : indexOfLastCountry - 1))
   //? these logic in "currentCountries" if beacuse wdon't want to jump one country between the page 1 and the next pages
 
   const pagination = (pageNumber) => {
@@ -32,19 +29,35 @@ const CardsConteiner = (props) => {
     setCountriesPerPage(
       currentPage === 1 ? 9 : 10
     )
-  },[dispatch])
+  },[currentPage]) //!
 
   useEffect(() => {
     if(!countriesFind.length){
       dispatch(getCountries())
     }
-  },[dispatch]) //* Para que cargue 1 vez
+  }) //* Para que cargue 1 vez
 
 
   const onReset = () => {
     dispatch(getCountries())
 }
+
+  const onPrev = () => {
+    if (currentPage > 1){
+      setCurrentPage(currentPage - 1)
+    }
+  }
+
+  const onNetx = () => {
+    if (currentPage < (countriesFind.length / countriesPerPage)){
+      setCurrentPage(currentPage + 1)
+    }
+  }
+
 console.log(countriesFind);
+
+
+
 
   return (
     <div className='mainConteiner'>
@@ -54,12 +67,21 @@ console.log(countriesFind);
         <Order />
       </div>
 
-      <Pagination 
-      countriesPerPage={countriesPerPage}
-      countriesFind={countriesFind.length}
-      pagination={pagination}
-      currentPage={currentPage}
+      <div className='pagination-conteiner numConteiner'>
+        <div>
+          <button onClick={onPrev}>Prev</button>
+          <button onClick={onNetx}>Netx</button>
+        </div>
+        <Pagination className='pagination'
+        countriesPerPage={countriesPerPage}
+        countriesFind={countriesFind.length}
+        pagination={pagination}
+        currentPage={currentPage}
       />
+
+      </div>
+
+      
       <div className='cardConteiner'> 
 
 
